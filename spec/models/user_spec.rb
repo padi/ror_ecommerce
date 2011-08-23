@@ -109,11 +109,12 @@ describe User, "instance methods" do
 
   context ".current_cart" do
     it 'should use the last cart' do
-      cart1 = @user.carts.new
+      cart1 = @user.new_cart
       cart1.save
-      cart2 = @user.carts.new
+      sleep 1
+      cart2 = @user.new_cart
       cart2.save
-      @user.current_cart.should == cart2
+      @user.current_cart.updated_at.should == cart2.updated_at
     end
   end
 

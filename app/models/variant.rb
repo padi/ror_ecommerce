@@ -42,6 +42,10 @@ class Variant < ActiveRecord::Base
     (count_on_hand - count_pending_to_customer) <= OUT_OF_STOCK_QTY
   end
 
+  def not_sold_out?
+    !sold_out?
+  end
+
   # returns true if the stock level is above or == the low stock level
   #
   # @param [none]

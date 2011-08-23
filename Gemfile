@@ -4,11 +4,13 @@ source 'http://rubygems.org'
 gem 'rails', '~> 3.0.9'
 
 gem "activemerchant", '~> 1.7.2'#, :lib => 'active_merchant'
+gem 'ancestry', '~> 1.2.4'
 gem 'authlogic', "2.1.5"
 gem 'bluecloth',     '~> 2.1.0'
 gem 'cancan', '~> 1.4.1'
 gem 'compass', "~> 0.11.0"
 gem 'dalli', '~> 1.0.2'
+gem 'enum_column', :git => 'git://github.com/electronick/enum_column.git'
 
 gem 'fancy-buttons'
 gem 'formtastic',  "~> 1.1.0"
@@ -16,11 +18,14 @@ gem "friendly_id", "~> 3.0"
 gem 'haml',  ">= 3.0.13"#, ">= 3.0.4"#, "2.2.21"#,
 gem "jquery-rails"
 
+
+gem "mongoid"#, "~> 2.1"
+gem "bson_ext"#, "~> 1.3"
 #gem 'memcache-client', '~> 1.8.5'
-gem 'mysql2', '~> 0.2.7'
+gem 'mysql2', '~> 0.2.11'
 
 gem 'nested_set', '~> 1.6.3'
-gem "nifty-generators", :git => 'git://github.com/drhenner/nifty-generators.git'
+
 gem 'nokogiri', '~> 1.4.4'
 gem 'paperclip', '~> 2.3.8'
 gem 'prawn', '~> 0.8.4'
@@ -45,36 +50,39 @@ end
 group :development do
   #gem 'awesome_print'
   gem "autotest-rails-pure"
-
+  gem "nifty-generators", :git => 'git://github.com/drhenner/nifty-generators.git'
   gem "rails-erd"
   gem "ruby-debug19"
   #gem "ruby-debug"
 end
 
 group :test do
+
+  gem "autotest"
+  gem "autotest-growl"
+  gem "autotest-rails-pure"
+  gem 'email_spec'
   gem 'factory_girl_rails'
+  gem "faker"
+
   gem 'mocha', :require => false
-  gem 'rspec-rails-mocha'
+  gem "mongoid-rspec"
   gem "shoulda"
+
+  gem 'rspec-rails-mocha'
   gem "rspec-rails",  "~> 2.4.0"
   gem "rspec",        "~> 2.4.0"
-
   gem "rspec-core",         "~> 2.4.0"
   gem "rspec-expectations", "~> 2.4.0"
   gem "rspec-mocks",        "~> 2.4.0"
-  gem 'email_spec'
-
-  gem "faker"
-  gem "autotest"
-  gem "autotest-rails-pure"
 
   if RUBY_PLATFORM =~ /darwin/
     gem "autotest-fsevent"
   end
-  gem "autotest-growl"
+
   #gem "redgreen"
   #gem "test-unit", "1.2.3"
-  gem "ZenTest", '4.5.0'# 4.6 breaks autotest
+  gem "ZenTest", '4.5.0'
 
   ###  THESE ARE ALL FOR CUCUMBER
 #  gem "webrat"  ## USE webrat or capybara NOT BOTH
