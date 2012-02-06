@@ -65,7 +65,7 @@ end
 group :test do
   gem 'factory_girl_rails', "~> 1.6.0"
   gem 'mocha', '~> 0.10.0', :require => false
-  gem 'rspec-rails-mocha'
+  gem 'rspec-rails-mocha', '~> 0.3.1', :require => false
   gem "shoulda"
   gem "rspec",        "~> 2.8.0"
 
